@@ -83,7 +83,7 @@ class FEMSolver:
         if self.A is None:
             self.assemble()
         if use_cg:
-            sol, info = spla.cg(self.A, self.b, tol=tol, maxiter=maxiter)
+            sol, info = spla.cg(self.A, self.b, rtol=tol, maxiter=maxiter)
             if info != 0:
                 sol = spla.spsolve(self.A, self.b)
         else:
